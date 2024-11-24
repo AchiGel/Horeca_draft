@@ -1,11 +1,18 @@
 import { Link, useLocation } from "react-router-dom";
+import logo from "../../public/logo.svg";
 
 export default function Header() {
   const { pathname } = useLocation();
 
   return (
     <header className="flex justify-between items-center px-16 h-16 shadow shadow-black">
-      <div>Logo</div>
+      <Link to="/">
+        <div className="flex items-center gap-2 cursor-pointer">
+          <img src={logo} alt="logo" />
+          <span className="text-2xl">Ddsgnr</span>
+        </div>
+      </Link>
+
       <nav className="flex items-center gap-8">
         <ul className="flex gap-8">
           <li

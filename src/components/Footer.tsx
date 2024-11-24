@@ -2,13 +2,20 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import logo from "../../public/logo.svg";
 
 export default function Footer() {
   return (
     <footer className="px-16 py-20 bg-black text-white">
       <div className="flex justify-between pb-20 border-b border-b-white">
         <div className="max-w-lg">
-          <div className="mb-6">Logo</div>
+          <Link to="/">
+            <div className="flex items-center gap-2 cursor-pointer mb-6">
+              <img src={logo} alt="logo" />
+              <span className="text-2xl">Ddsgnr</span>
+            </div>
+          </Link>
           <span className="block mb-6">
             Join our newsletter to stay up to date on features and releases.
           </span>

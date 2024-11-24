@@ -14,7 +14,7 @@ export default function Footer() {
           </span>
           <form className="flex items-center gap-4 mb-4">
             <input
-              className="p-3 rounded-md bg-transparent border border-white"
+              className="p-3 rounded-md bg-transparent border border-white w-full"
               type="text"
               placeholder="Enter your email:"
             />

@@ -8,7 +8,7 @@ export default function NewPosts() {
       <div>
         <h2 className="text-2xl mb-10">Featured blog posts</h2>
         <div className="grid grid-cols-2 gap-4">
-          <BlogCard dir="vertical" />
+          <BlogCard dir="cover" />
           <div className="flex flex-col gap-4">
             <BlogCard dir="horisontal" />
             <BlogCard dir="horisontal" />

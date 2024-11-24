@@ -8,15 +8,21 @@ export default function Footer() {
     <footer className="px-16 py-20 bg-black text-white">
       <div className="flex justify-between pb-20 border-b border-b-white">
         <div className="max-w-lg">
-          <div>Logo</div>
-          <span>
+          <div className="mb-6">Logo</div>
+          <span className="block mb-6">
             Join our newsletter to stay up to date on features and releases.
           </span>
-          <form>
-            <input type="text" placeholder="Enter your email:" />
-            <button>Subscribe</button>
+          <form className="flex items-center gap-4 mb-4">
+            <input
+              className="p-3 rounded-md bg-transparent border border-white"
+              type="text"
+              placeholder="Enter your email:"
+            />
+            <button className="py-3 px-6 rounded-md bg-transparent border border-white">
+              Subscribe
+            </button>
           </form>
-          <span>
+          <span className="text-xs">
             By subscribing you agree to with our Privacy Policy and provide
             consent to receive updates from our company.
           </span>

@@ -1,4 +1,13 @@
-export default function BlogCard({ dir }: { dir: string }) {
+import { Link } from "react-router-dom";
+import { BlogPost } from "../pages/Home";
+
+export default function BlogCard({
+  dir,
+  post,
+}: {
+  dir: string;
+  post: BlogPost;
+}) {
   return (
     <div
       className={
@@ -6,7 +15,7 @@ export default function BlogCard({ dir }: { dir: string }) {
           ? "flex flex-col gap-6"
           : dir === "vertical"
           ? "flex flex-col gap-6"
-          : "flex items-center gap-6"
+          : "flex items-start gap-6"
       }
     >
       <img
@@ -14,10 +23,10 @@ export default function BlogCard({ dir }: { dir: string }) {
           dir === "cover"
             ? "w-full h-96 object-cover rounded-md"
             : dir === "vertical"
-            ? "w-96 rounded-md"
+            ? "w-96 h-48 object-cover rounded-md"
             : "w-64 h-64 object-cover rounded-md"
         }
-        src="/subscribe-bg.jpg"
+        src={post ? post.urlToImage : "Loading..."}
         alt="postImage"
       />
       <div className="flex flex-col gap-4">
@@ -26,10 +35,12 @@ export default function BlogCard({ dir }: { dir: string }) {
           <span className="text-sm">X Min Read</span>
         </div>
         <h2 className={dir === "cover" ? "text-4xl" : "text-2xl"}>
-          Blog Title
+          {post ? post.title : "Loading..."}
         </h2>
-        <p>Blog Text Short</p>
-        <div>Read more</div>
+        <p>{post ? post.description : "Loading..."}</p>
+        <Link to={post ? post.publishedAt : "Loading"}>
+          <div>Read more</div>
+        </Link>
       </div>
     </div>
   );

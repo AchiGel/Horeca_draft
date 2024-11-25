@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../public/logo.svg";
+import logo from "/logo.svg";
 
 export default function Header() {
   const { pathname } = useLocation();
@@ -9,7 +9,7 @@ export default function Header() {
       <Link to="/">
         <div className="flex items-center gap-2 cursor-pointer">
           <img src={logo} alt="logo" />
-          <span className="text-2xl">Ddsgnr</span>
+          <span className="text-2xl">Horeca Georgia</span>
         </div>
       </Link>
 

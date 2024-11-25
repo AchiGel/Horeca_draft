@@ -3,7 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../../public/logo.svg";
+import logo from "/logo.svg";
 
 export default function Footer() {
   return (
@@ -13,7 +13,7 @@ export default function Footer() {
           <Link to="/">
             <div className="flex items-center gap-2 cursor-pointer mb-6">
               <img src={logo} alt="logo" />
-              <span className="text-2xl">Ddsgnr</span>
+              <span className="text-2xl">Horeca Georgia</span>
             </div>
           </Link>
           <span className="block mb-6">

@@ -6,7 +6,11 @@ export default {
       backgroundImage: {
         pattern: "url('/subscribe-bg.jpg')",
       },
+      colors: {
+        "1c1c1d": "#1c1c1d",
+      },
     },
   },
   plugins: [],
+  darkMode: "class",
 };

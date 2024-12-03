@@ -4,4 +4,10 @@
 
 * {
   @apply transition-all duration-100;
+  font-family: "BPG Nino Mtavruli Bold";
+}
+
+@font-face {
+  font-family: "BPG Nino Mtavruli Bold";
+  src: url(/public/bpg_nino_mtavruli_bold.ttf);
 }

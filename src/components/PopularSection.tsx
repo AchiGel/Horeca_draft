@@ -4,10 +4,10 @@ import BlogCard from "./BlogCard";
 export default function PopularSection({ posts }: { posts: BlogPost[] }) {
   return (
     <div className="px-16 py-28">
-      <h2 className="text-5xl mb-6">Popular</h2>
+      <h2 className="text-5xl mb-6">პოპულარული</h2>
       <div className="flex justify-between mb-20">
-        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </span>
-        <button>View all</button>
+        <span>ყველაზე პოპულარული ამბები მასპინძლობის ინდუსტრიის შესახებ</span>
+        <button>ყველას ნახვა</button>
       </div>
       <div className="grid grid-cols-3 gap-x-8 gap-y-20">
         {posts ? (

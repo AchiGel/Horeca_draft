@@ -78,7 +78,16 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-8 flex items-center justify-between">
-        <h4>Copyright</h4>
+        <h4>
+          ©{" "}
+          <a
+            href="https://github.com/AchiGel"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Archil Gelashvili
+          </a>
+        </h4>
         <div className="flex gap-6">
           <span>text 1</span>
           <span>text 2</span>

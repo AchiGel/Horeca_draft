@@ -28,7 +28,6 @@ export default function App() {
     }
   };
 
-  console.log(dark);
   return (
     <div className="flex flex-col min-h-screen dark:bg-1c1c1d dark:text-white">
       <Header modeHandler={modeHandler} dark={dark} />

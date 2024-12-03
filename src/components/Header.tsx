@@ -29,7 +29,7 @@ export default function Header({
                 : "p-3 border-collapse"
             }
           >
-            <Link to="/">Home</Link>
+            <Link to="/">მთავარი</Link>
           </li>
           <li
             className={
@@ -38,7 +38,7 @@ export default function Header({
                 : "p-3 border-collapse"
             }
           >
-            <Link to="/popular">Popular</Link>
+            <Link to="/popular">პოპულარული</Link>
           </li>
           <li
             className={
@@ -47,15 +47,12 @@ export default function Header({
                 : "p-3 border-collapse"
             }
           >
-            <Link to="/trending">Trending</Link>
+            <Link to="/trending">ტრენდული</Link>
           </li>
         </ul>
         <div className="flex gap-4">
           <button className="px-5 py-2 rounded-md border border-black dark:border-white">
-            Log in
-          </button>
-          <button className="px-5 py-2 rounded-md border border-black bg-black text-white dark:border-white dark:bg-white dark:text-black">
-            Get Started
+            შესვლა/რეგისტრაცია
           </button>
           <button onClick={() => modeHandler()} className="text-3xl">
             {dark ? <MdLightMode /> : <MdNightlight />}

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "/logo.svg";
+import logo from "/Horeca_logo.png";
 import { MdLightMode, MdNightlight } from "react-icons/md";
 
 export default function Header({
@@ -15,7 +15,7 @@ export default function Header({
     <header className="flex justify-between items-center px-16 h-16 shadow shadow-black dark:shadow-white">
       <Link to="/">
         <div className="flex items-center gap-2 cursor-pointer">
-          <img src={logo} alt="logo" />
+          <img className="max-w-12" src={logo} alt="logo" />
           <span className="text-2xl">Horeca Georgia</span>
         </div>
       </Link>

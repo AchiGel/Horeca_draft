@@ -3,7 +3,7 @@ import { FaInstagram } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "/logo.svg";
+import logo from "/Horeca_logo.png";
 
 export default function Footer() {
   return (
@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="max-w-lg">
           <Link to="/">
             <div className="flex items-center gap-2 cursor-pointer mb-6">
-              <img src={logo} alt="logo" />
+              <img className="max-w-12" src={logo} alt="logo" />
               <span className="text-2xl">Horeca Georgia</span>
             </div>
           </Link>

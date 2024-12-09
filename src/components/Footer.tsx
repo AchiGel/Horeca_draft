@@ -8,7 +8,7 @@ import logo from "/Horeca_logo.png";
 export default function Footer() {
   return (
     <footer className="px-16 py-20 bg-black text-white dark:bg-slate-600">
-      <div className="flex justify-between pb-20 border-b border-b-white">
+      <div className="flex flex-col lg:flex-row justify-between pb-20 border-b border-b-white">
         <div className="max-w-lg">
           <Link to="/">
             <div className="flex items-center gap-2 cursor-pointer mb-6">

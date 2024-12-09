@@ -9,7 +9,7 @@ export default function PopularSection({ posts }: { posts: BlogPost[] }) {
         <span>ყველაზე პოპულარული ამბები მასპინძლობის ინდუსტრიის შესახებ</span>
         <button>ყველას ნახვა</button>
       </div>
-      <div className="grid grid-cols-3 gap-x-8 gap-y-20">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
         {posts ? (
           posts
             .slice(0, 6)

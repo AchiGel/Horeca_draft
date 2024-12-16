@@ -7,8 +7,8 @@ import logo from "/Horeca_logo.png";
 
 export default function Footer() {
   return (
-    <footer className="px-16 py-20 bg-black text-white dark:bg-slate-600">
-      <div className="flex flex-col lg:flex-row justify-between pb-20 border-b border-b-white">
+    <footer className="px-8 py-12 lg:px-16 lg:py-20 bg-black text-white dark:bg-slate-600">
+      <div className="flex flex-col md:flex-row justify-between pb-20 border-b border-b-white">
         <div className="max-w-lg">
           <Link to="/">
             <div className="flex items-center gap-2 cursor-pointer mb-6">
@@ -35,26 +35,6 @@ export default function Footer() {
           </span>
         </div>
         <div className="flex gap-10">
-          <div>
-            <h3 className="text-base mb-6">About us</h3>
-            <ul className="text-sm flex flex-col gap-4">
-              <li>Popular</li>
-              <li>Trending</li>
-              <li>Contact</li>
-              <li>Support/Help</li>
-              <li>Request Topics</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-base mb-6">Column two</h3>
-            <ul className="text-sm flex flex-col gap-4">
-              <li>FAQs</li>
-              <li>Terms and Condition</li>
-              <li>Support</li>
-              <li>Random link</li>
-              <li>Random link 2</li>
-            </ul>
-          </div>
           <div>
             <h3 className="text-base mb-6">Follow Us:</h3>
             <ul className="text-sm flex flex-col gap-4">
@@ -88,11 +68,6 @@ export default function Footer() {
             Archil Gelashvili
           </a>
         </h4>
-        <div className="flex gap-6">
-          <span>text 1</span>
-          <span>text 2</span>
-          <span>text 3</span>
-        </div>
       </div>
     </footer>
   );

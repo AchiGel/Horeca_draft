@@ -15,7 +15,7 @@ export default function BlogCard({
           ? "flex flex-col gap-6"
           : dir === "vertical"
           ? "flex flex-col gap-6"
-          : "flex items-start gap-6"
+          : "flex flex-col lg:flex-row items-start gap-6"
       }
     >
       <img

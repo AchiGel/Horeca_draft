@@ -32,7 +32,7 @@ export default function Article() {
   }, [location.pathname]);
 
   return (
-    <div className="p-16">
+    <div className="p-6 md:p-16">
       {post ? (
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl">{post.title}</h1>

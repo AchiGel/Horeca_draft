@@ -1,7 +1,7 @@
 export default function Subscribe() {
   return (
     <div className="bg-pattern bg-no-repeat bg-center bg-cover">
-      <div className="bg-black/50 flex justify-between gap-20 px-16 py-28 text-white">
+      <div className="bg-black/50 flex flex-col md:flex-row justify-between gap-20 px-4 py-8 sm:px-16 sm:py-28 text-white">
         <div>
           <h2 className="text-4xl mb-6">Sign up for our newsletter</h2>
           <span className="text-lg">

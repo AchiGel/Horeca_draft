@@ -15,7 +15,7 @@ export default function Header({
   const [burger, setBurger] = useState(false);
 
   return (
-    <header className="flex justify-between items-center px-16 h-16 shadow shadow-black dark:shadow-white relative">
+    <header className="flex justify-between items-center px-4 sm:px-16 h-16 shadow shadow-black dark:shadow-white relative">
       <Link to="/">
         <div className="flex items-center gap-2 cursor-pointer">
           <img className="max-w-12" src={logo} alt="Horeca Georgia Logo" />

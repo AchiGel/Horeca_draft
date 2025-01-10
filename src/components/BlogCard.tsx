@@ -6,7 +6,7 @@ export default function BlogCard({
   post,
 }: {
   dir: string;
-  post: BlogPost;
+  post?: BlogPost;
 }) {
   return (
     <div

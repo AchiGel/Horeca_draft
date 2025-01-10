@@ -38,10 +38,13 @@ export default function Footer() {
           <div>
             <h3 className="text-base mb-6">Follow Us:</h3>
             <ul className="text-sm flex flex-col gap-4">
-              <li className="flex gap-3 items-center">
-                <FaFacebookF />
-                Facebook
-              </li>
+              <a href="https://www.facebook.com/hrcgeo/" target="_blank">
+                <li className="flex gap-3 items-center">
+                  <FaFacebookF />
+                  Facebook
+                </li>
+              </a>
+
               <li className="flex gap-3 items-center">
                 <FaInstagram />
                 Instagram

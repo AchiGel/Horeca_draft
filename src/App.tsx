@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
@@ -31,8 +31,9 @@ export default function App() {
   return (
     <div className="flex flex-col min-h-screen dark:bg-1c1c1d dark:text-white">
       <Header modeHandler={modeHandler} dark={dark} />
-      <div className="flex-grow">
-        <Outlet />
+      <div className="flex-grow h-96 flex justify-center items-center">
+        {/* <Outlet /> */}
+        <h1 className="text-center text-3xl">ვებ გვერდი მალე გაეშვება</h1>
       </div>
       <Footer />
     </div>

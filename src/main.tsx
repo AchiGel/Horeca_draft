@@ -7,17 +7,13 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Popular from "./pages/Popular.tsx";
-import Trending from "./pages/Trending.tsx";
-import Article from "./pages/Article.tsx";
+import Article from "./pages/ArticlePage.tsx";
 import Home from "./pages/Home.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Home />} />
-      <Route path="/popular" element={<Popular />} />
-      <Route path="/trending" element={<Trending />} />
       <Route path="/:id" element={<Article />} />
     </Route>
   )

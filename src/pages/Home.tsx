@@ -1,35 +1,37 @@
 import { useEffect, useState } from "react";
 import NewPosts from "../components/NewPosts";
-import PopularSection from "../components/PopularSection";
-import Subscribe from "../components/Subscribe";
-import TrendingSection from "../components/TrendingSection";
+import { collection, getDocs, Timestamp } from "firebase/firestore";
+import { db } from "../../firebase";
 
-export type BlogPost = {
-  author: string;
-  content: string;
-  description: string;
-  publishedAt: string;
-  source: { id: string; name: string };
+export type Article = {
+  id: string;
   title: string;
-  url: string;
-  urlToImage: string;
+  body: string;
+  description: string;
+  images: string[];
+  dateAdd: Timestamp;
+  categories: string[];
+  minutesRead: number;
 };
 
-const apiKey = import.meta.env.VITE_API_KEY;
-
 export default function Home() {
-  const [posts, setPosts] = useState<BlogPost[] | []>([]);
+  const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(
-          `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${apiKey}`
-        );
-        const data = await response.json();
-        setPosts(data.articles);
+        const articlesCol = collection(db, "articles");
+        const articlesSnap = await getDocs(articlesCol);
+        const articlesList: Article[] = articlesSnap.docs.map(
+          (doc) =>
+            ({
+              id: doc.id, // Add Firestore document ID
+              ...doc.data(),
+            } as Article)
+        ); // Type assertion
+        setArticles(articlesList);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching articles:", error);
       }
     }
 
@@ -38,10 +40,7 @@ export default function Home() {
 
   return (
     <div>
-      <NewPosts posts={posts} />
-      <Subscribe />
-      <PopularSection posts={posts} />
-      <TrendingSection posts={posts} />
+      <NewPosts posts={articles} />
     </div>
   );
 }

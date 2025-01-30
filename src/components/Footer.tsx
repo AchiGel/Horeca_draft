@@ -1,7 +1,6 @@
 import { FaFacebookF } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
-import { RiTwitterXFill } from "react-icons/ri";
-import { FaLinkedin } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -22,7 +21,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/horecageorgia/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex gap-3 items-center hover:text-pink-500 transition-colors"
@@ -32,22 +31,13 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://twitter.com/"
+                href="https://www.youtube.com/@HorecaGeorgia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex gap-3 items-center hover:text-blue-400 transition-colors"
+                className="flex gap-3 items-center hover:text-red-400 transition-colors"
               >
-                <RiTwitterXFill />X
-              </a>
-
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex gap-3 items-center hover:text-blue-700 transition-colors"
-              >
-                <FaLinkedin />
-                LinkedIn
+                <FaYoutube />
+                YouTube
               </a>
             </ul>
           </div>

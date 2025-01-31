@@ -36,10 +36,10 @@ export default function ArticlePage() {
   }, [location.pathname]);
 
   return (
-    <div className="p-6 md:p-16 max-w-3xl mx-auto">
+    <div className="p-6 pt-24 md:p-16 md:pt-32 max-w-3xl mx-auto">
       {article ? (
         <div className="flex flex-col gap-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">
             {article.title}
           </h1>
           <img
@@ -47,14 +47,18 @@ export default function ArticlePage() {
             src={article.images[0]}
             alt="Main Image"
           />
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-gray-600 dark:text-white leading-relaxed">
             {article.description}
           </p>
           <div className="border-t border-gray-300 my-4"></div>
-          <p className="text-xl text-gray-700 leading-loose">{article.body}</p>
+          <p className="text-xl text-gray-700 dark:text-white leading-loose">
+            {article.body}
+          </p>
         </div>
       ) : (
-        <h1 className="text-2xl text-center text-gray-500">Loading...</h1>
+        <h1 className="text-2xl text-center text-gray-500 dark:text-white">
+          Loading...
+        </h1>
       )}
     </div>
   );

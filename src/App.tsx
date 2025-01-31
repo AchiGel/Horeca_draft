@@ -34,7 +34,7 @@ export default function App() {
       <div className="flex-grow flex justify-center items-center">
         {/* <Outlet /> */}
         <div className="h-96 flex justify-center items-center">
-          <h1 className="text-3xl">ვებ გვერდი მალე გაეშვება...</h1>
+          <h1 className="text-3xl text-center">ვებ გვერდი მალე გაეშვება...</h1>
         </div>
       </div>
       <Footer />

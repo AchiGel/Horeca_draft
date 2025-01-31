@@ -4,7 +4,7 @@ import Title from "./Title";
 
 export default function NewPosts({ posts }: { posts: Article[] }) {
   return (
-    <div className="flex flex-col gap-20 px-8 py-12 lg:px-16 lg:py-28 ">
+    <div className="flex flex-col gap-20 p-8 pt-24 lg:px-16 lg:py-28 ">
       <Title />
       <div>
         <h2 className="text-2xl mb-10">უახლესი სტატიები</h2>

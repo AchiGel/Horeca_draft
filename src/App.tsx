@@ -49,7 +49,7 @@ export default function App() {
           property="og:description"
           content="Media about HORECA in Georgia and global markets"
         />
-        <meta property="og:image" content="Horeca_logo.png" />
+        <meta property="og:image" content="/Horeca_logo.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -66,7 +66,7 @@ export default function App() {
         />
         <meta name="twitter:url" content="https://yourwebsite.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="Horeca_logo.png" />
+        <meta name="twitter:image" content="/Horeca_logo.png" />
         <meta name="twitter:image:alt" content="Horeca Georgia Logo" />
       </Helmet>
       <Header modeHandler={modeHandler} dark={dark} />

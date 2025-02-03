@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -30,6 +31,26 @@ export default function App() {
 
   return (
     <div className="flex flex-col min-h-screen dark:bg-1c1c1d dark:text-white">
+      <Helmet>
+        <title>Horeca Georgia - ჰორეკა საქართველო</title>
+        <meta
+          name="description"
+          content="Media about HORECA in Georgia and global markets"
+        />
+        <meta
+          name="keywords"
+          content="horeca, restaurants, hotels, cafes, რესტორანი, კაფე, სასტუმრო"
+        />
+        <meta
+          property="og:title"
+          content="Horeca Georgia - ჰორეკა საქართველო"
+        />
+        <meta
+          property="og:description"
+          content="Media about HORECA in Georgia and global markets"
+        />
+        <meta property="og:image" content="Horeca_logo.png" />
+      </Helmet>
       <Header modeHandler={modeHandler} dark={dark} />
       <div className="flex-grow flex justify-center items-center">
         <Outlet />

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Article } from "./Home";
+import { Helmet } from "react-helmet";
 
 export default function ArticlePage() {
   const { id } = useParams<{ id: string }>();
@@ -51,6 +52,14 @@ export default function ArticlePage() {
 
   return (
     <div className="p-6 pt-24 md:p-16 md:pt-32 max-w-3xl mx-auto">
+      <Helmet>
+        <title>{article.title}</title>
+        <meta name="description" content={article.description} />
+        <meta name="keywords" content={article.title.split(" ").join(", ")} />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.description} />
+        <meta property="og:image" content={article.images[0]} />
+      </Helmet>
       <article className="flex flex-col gap-6">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">
           {article.title}

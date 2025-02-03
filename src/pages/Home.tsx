@@ -6,7 +6,7 @@ import { db } from "../../firebase";
 export type Article = {
   id: string;
   title: string;
-  body: string;
+  body: string[];
   description: string;
   images: string[];
   dateAdd: Timestamp;

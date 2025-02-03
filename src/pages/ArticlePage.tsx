@@ -1,65 +1,96 @@
 import { useEffect, useState } from "react";
-import { Article } from "./Home";
-import { useLocation } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
+import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import { Article } from "./Home";
 
 export default function ArticlePage() {
-  const location = useLocation();
-
-  const [article, setArticle] = useState<Article>();
+  const { id } = useParams<{ id: string }>();
+  const [article, setArticle] = useState<Article | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
+      if (!id) return;
+
       try {
-        const articlesCol = collection(db, "articles");
-        const articlesSnap = await getDocs(articlesCol);
-        const articlesList: Article[] = articlesSnap.docs.map(
-          (doc) =>
-            ({
-              id: doc.id, // Add Firestore document ID
-              ...doc.data(),
-            } as Article)
-        ); // Type assertion
+        const articleRef = doc(db, "articles", id);
+        const articleSnap = await getDoc(articleRef);
 
-        const exactPost = articlesList.find(
-          (el: { id: string }) => el.id === location.pathname.slice(1)
-        );
-
-        setArticle(exactPost);
+        if (articleSnap.exists()) {
+          setArticle({ id: articleSnap.id, ...articleSnap.data() } as Article);
+        } else {
+          setArticle(null);
+        }
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching article:", error);
+        setArticle(null);
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchData();
-  }, [location.pathname]);
+  }, [id]);
+
+  if (loading) {
+    return (
+      <h1 className="text-2xl text-center text-gray-500 dark:text-white">
+        Loading...
+      </h1>
+    );
+  }
+
+  if (!article) {
+    return (
+      <h1 className="text-2xl text-center text-gray-500 dark:text-white">
+        Article not found.
+      </h1>
+    );
+  }
 
   return (
     <div className="p-6 pt-24 md:p-16 md:pt-32 max-w-3xl mx-auto">
-      {article ? (
-        <div className="flex flex-col gap-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">
-            {article.title}
-          </h1>
+      <article className="flex flex-col gap-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">
+          {article.title}
+        </h1>
+        {article.images?.length > 0 && (
           <img
             className="w-full h-[400px] md:h-[500px] object-cover rounded-xl shadow-lg"
             src={article.images[0]}
             alt="Main Image"
           />
-          <p className="text-lg text-gray-600 dark:text-white leading-relaxed">
-            {article.description}
-          </p>
-          <div className="border-t border-gray-300 my-4"></div>
-          <p className="text-xl text-gray-700 dark:text-white leading-loose">
-            {article.body}
-          </p>
+        )}
+        <span>
+          {article.dateAdd.toDate().toLocaleString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            hour12: true,
+          })}
+        </span>
+        <p className="text-lg text-gray-600 dark:text-white leading-relaxed">
+          {article.description}
+        </p>
+        <div className="border-t border-gray-300 my-4"></div>
+        {/* Render each paragraph separately */}
+        <div className="flex flex-col gap-4">
+          {article.body.map(
+            (paragraph, index) =>
+              paragraph.trim() && (
+                <p
+                  key={index}
+                  className="text-xl text-gray-700 dark:text-white leading-loose"
+                >
+                  {paragraph}
+                </p>
+              )
+          )}
         </div>
-      ) : (
-        <h1 className="text-2xl text-center text-gray-500 dark:text-white">
-          Loading...
-        </h1>
-      )}
+      </article>
     </div>
   );
 }

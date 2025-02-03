@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -54,7 +54,7 @@ export default function App() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Horeca Georgia Logo" />
-        <meta property="og:url" content="https://yourwebsite.com" />
+        <meta property="og:url" content="https://horecageorgia.ge" />
 
         <meta
           name="twitter:title"

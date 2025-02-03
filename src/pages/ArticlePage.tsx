@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Article } from "./Home";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export default function ArticlePage() {
   const { id } = useParams<{ id: string }>();

@@ -67,9 +67,9 @@ export default function App() {
             name="twitter:description"
             content="Media about HORECA in Georgia and global markets"
           />
-          <meta name="twitter:url" content="https://yourwebsite.com" />
+          <meta name="twitter:url" content="https://horecageorgia.ge/" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:image" content="/Horeca_logo.png" />
+          <meta name="twitter:image" content="https://horecageorgia.ge/Horeca_logo.png" />
           <meta name="twitter:image:alt" content="Horeca Georgia Logo" />
         </Helmet>
         <Header modeHandler={modeHandler} dark={dark} />

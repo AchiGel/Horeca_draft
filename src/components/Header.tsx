@@ -14,7 +14,7 @@ export default function Header({
     <header className="fixed top-0 left-0 w-full bg-white dark:bg-slate-600 flex justify-between items-center px-4 sm:px-16 h-16 shadow shadow-black dark:shadow-white z-50">
       <Link to="/">
         <div className="flex items-center gap-2 cursor-pointer">
-          <img className="max-w-12" src={logo} alt="Horeca Georgia Logo" />
+          <img className="w-12 h-12" src={logo} alt="Horeca Georgia Logo" />
           <span className="text-2xl">Horeca Georgia</span>
         </div>
       </Link>

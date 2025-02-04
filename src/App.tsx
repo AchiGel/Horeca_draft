@@ -43,6 +43,13 @@ export default function App() {
             content="horeca, restaurants, hotels, cafes, რესტორანი, კაფე, სასტუმრო"
           />
           <meta
+            property="og:image"
+            content="https://horecageorgia.ge/Horeca_logo.png"
+          />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:type" content="website" />
+          <meta
             property="og:title"
             content="Horeca Georgia - ჰორეკა საქართველო"
           />
@@ -50,12 +57,7 @@ export default function App() {
             property="og:description"
             content="Media about HORECA in Georgia and global markets"
           />
-          <meta property="og:image" content="/Horeca_logo.png" />
-          <meta property="og:image:type" content="image/png" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:image:alt" content="Horeca Georgia Logo" />
-          <meta property="og:url" content="https://horecageorgia.ge" />
+          <meta property="og:url" content="https://horecageorgia.ge/" />
 
           <meta
             name="twitter:title"

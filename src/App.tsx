@@ -36,41 +36,8 @@ export default function App() {
           <title>Horeca Georgia - ჰორეკა საქართველო</title>
           <meta
             name="description"
-            content="Media about HORECA in Georgia and global markets"
+            content="Stay updated on the latest trends, insights, and news in the HORECA industry in Georgia and worldwide. Discover expert analysis, restaurant and hotel updates, and everything you need to know about the hospitality sector."
           />
-          <meta
-            name="keywords"
-            content="horeca, restaurants, hotels, cafes, რესტორანი, კაფე, სასტუმრო"
-          />
-          <meta
-            property="og:image"
-            content="https://horecageorgia.ge/Horeca_logo.png"
-          />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <meta property="og:type" content="website" />
-          <meta
-            property="og:title"
-            content="Horeca Georgia - ჰორეკა საქართველო"
-          />
-          <meta
-            property="og:description"
-            content="Media about HORECA in Georgia and global markets"
-          />
-          <meta property="og:url" content="https://horecageorgia.ge/" />
-
-          <meta
-            name="twitter:title"
-            content="Horeca Georgia - ჰორეკა საქართველო"
-          />
-          <meta
-            name="twitter:description"
-            content="Media about HORECA in Georgia and global markets"
-          />
-          <meta name="twitter:url" content="https://horecageorgia.ge/" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:image" content="https://horecageorgia.ge/Horeca_logo.png" />
-          <meta name="twitter:image:alt" content="Horeca Georgia Logo" />
         </Helmet>
         <Header modeHandler={modeHandler} dark={dark} />
         <div className="flex-grow flex justify-center items-center">

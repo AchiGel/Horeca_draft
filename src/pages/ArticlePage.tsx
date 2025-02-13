@@ -61,7 +61,7 @@ export default function ArticlePage() {
         <meta property="og:image" content={article.images[0]} />
       </Helmet>
       <article className="flex flex-col gap-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-white">
           {article.title}
         </h1>
         {article.images?.length > 0 && (

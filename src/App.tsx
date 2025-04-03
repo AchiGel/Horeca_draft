@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+// import { Outlet } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function App() {
@@ -41,7 +41,8 @@ export default function App() {
         </Helmet>
         <Header modeHandler={modeHandler} dark={dark} />
         <div className="flex-grow flex justify-center items-center">
-          <Outlet />
+          {/* <Outlet /> */}
+          <h1 className="text-2xl">კონტენტი მალე დაემატება</h1>
         </div>
         <Footer />
       </div>

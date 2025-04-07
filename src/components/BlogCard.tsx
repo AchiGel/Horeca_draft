@@ -15,7 +15,7 @@ export default function BlogCard({ article }: { article: ArticleType }) {
     .padStart(2, "0")}.${date.getFullYear()}`;
 
   return (
-    <Link to={"articles/" + article.documentId}>
+    <Link to={"/articles/" + article.documentId}>
       <div className="flex flex-col h-full items-start bg-white dark:bg-slate-600 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
         <img
           className="w-full object-cover"

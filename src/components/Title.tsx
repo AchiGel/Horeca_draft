@@ -1,12 +1,10 @@
-export default function Title() {
+import { PageDescription } from "../pages/Home";
+
+export default function Title({ page }: { page: PageDescription }) {
   return (
-    <div>
-      <h1 className="text-3xl md:text-6xl mb-6">
-        Horeca Georgia - მასპინძლობის ინდუსტრია საქართველოში
-      </h1>
-      <span className="text-base md:text-lg">
-        ისტორია, აქტუალური ამბები, ინოვაციები და ტენდენციები
-      </span>
+    <div className="mt-20 mx-10 md:mt-28 md:mx-10 lg:mt-32 lg:mx-24">
+      <h1 className="text-3xl md:text-6xl mb-6">{page.title}</h1>
+      <span className="text-base md:text-lg">{page.descr}</span>
     </div>
   );
 }

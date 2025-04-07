@@ -11,8 +11,8 @@ export default function Navigation() {
     { name: "სასტუმროები", path: "/hotels" },
     { name: "კაფეები", path: "/cafes" },
     { name: "ქეითერინგი", path: "/catering" },
-    { name: "HR", path: "/hr" },
-    { name: "მიწოდება", path: "/supply" },
+    { name: "მენეჯმენტი", path: "/management" },
+    { name: "ტრენდები", path: "/trends" },
   ];
 
   return (

@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import NewPosts from "../components/NewPosts";
+import Posts from "../components/Posts";
+import Title from "../components/Title";
+import Newest from "../components/Newest";
+
+export interface PageDescription {
+  title: string;
+  descr: string;
+}
 
 export interface ArticleType {
   body: ArticleBody[];
@@ -33,6 +40,7 @@ interface ArticleImage {
 export default function Home() {
   const [articles, setArticles] = useState<ArticleType[]>([]);
   const [loading, setLoading] = useState(true);
+  const [newestArticle, setNewestArticle] = useState<ArticleType>();
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -57,5 +65,24 @@ export default function Home() {
     fetchArticles();
   }, []);
 
-  return <div>{loading ? "Loading..." : <NewPosts posts={articles} />}</div>;
+  useEffect(() => {
+    const newestPost = articles.sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+    )[0];
+    setNewestArticle(newestPost);
+  }, [articles]);
+
+  return (
+    <div className="flex flex-col items-center">
+      <Title
+        page={{
+          title: "Horeca Georgia - მასპინძლობის ინდუსტრია საქართველოში",
+          descr: "ისტორია, აქტუალური ამბები, ინოვაციები და ტენდენციები",
+        }}
+      />
+      <Newest newest={newestArticle} />
+      {loading ? "Loading..." : <Posts posts={articles} />}
+    </div>
+  );
 }

@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import Posts from "../components/Posts";
+import Title from "../components/Title";
 
 export default function Cafes() {
   return (
@@ -11,7 +13,13 @@ export default function Cafes() {
         />
         <meta name="keywords" content="horeca, cafes, კაფეები" />
       </Helmet>
-      <h1>კაფეები</h1>
+      <Title
+        page={{
+          title: "Horeca Georgia - მასპინძლობის ინდუსტრია საქართველოში",
+          descr: "ამბები და სიახლეები კაფეების შესახებ",
+        }}
+      />
+      <Posts posts={[]} />
     </div>
   );
 }

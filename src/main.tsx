@@ -13,8 +13,8 @@ import Restaurants from "./pages/Restaurants.tsx";
 import Cafes from "./pages/Cafes.tsx";
 import Catering from "./pages/Catering.tsx";
 import Hotels from "./pages/Hotels.tsx";
-import Hr from "./pages/Hr.tsx";
-import Supply from "./pages/Supply.tsx";
+import Management from "./pages/Management.tsx";
+import Trends from "./pages/Trends.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,8 +25,8 @@ const router = createBrowserRouter(
       <Route path="/cafes" element={<Cafes />} />
       <Route path="/catering" element={<Catering />} />
       <Route path="/hotels" element={<Hotels />} />
-      <Route path="/hr" element={<Hr />} />
-      <Route path="/supply" element={<Supply />} />
+      <Route path="/management" element={<Management />} />
+      <Route path="/trends" element={<Trends />} />
     </Route>
   )
 );

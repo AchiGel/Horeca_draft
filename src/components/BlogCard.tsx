@@ -16,7 +16,7 @@ export default function BlogCard({ article }: { article: ArticleType }) {
 
   return (
     <Link to={"articles/" + article.documentId}>
-      <div className="flex flex-col h-full items-start bg-white overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+      <div className="flex flex-col h-full items-start bg-white dark:bg-slate-600 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
         <img
           className="w-full object-cover"
           src={`${

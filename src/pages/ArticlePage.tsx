@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleType } from "./Home";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export default function ArticlePage() {
   const { id } = useParams<{ id: string }>();
@@ -31,7 +31,8 @@ export default function ArticlePage() {
   }, [id]);
 
   return (
-    <div>
+    <>
+      {" "}
       <Helmet>
         <title>{article?.title || "Loading..."}</title>
         <meta property="og:title" content={article?.title || "Article"} />
@@ -55,23 +56,25 @@ export default function ArticlePage() {
         )}
         <meta property="fb:app_id" content="1184963699721099" />
       </Helmet>
-      {loading ? (
-        "Loading..."
-      ) : (
-        <div className="flex flex-col gap-4 p-6 pt-24 md:p-16 md:pt-32 max-w-3xl mx-auto">
-          <h1 className="text-3xl">{article?.title}</h1>
-          <img
-            src={`${
-              "https://strapi-horeca.onrender.com" + article?.images[0].url
-            }`}
-            alt={article?.title}
-          />
-          <p className="text-xl italic">{article?.description}</p>
-          {article?.body.map((p) =>
-            p.children.map((pc, index) => <p key={index}>{pc.text}</p>)
-          )}
-        </div>
-      )}
-    </div>
+      <div>
+        {loading ? (
+          "Loading..."
+        ) : (
+          <div className="flex flex-col gap-4 p-6 pt-24 md:p-16 md:pt-32 max-w-3xl mx-auto">
+            <h1 className="text-3xl">{article?.title}</h1>
+            <img
+              src={`${
+                "https://strapi-horeca.onrender.com" + article?.images[0].url
+              }`}
+              alt={article?.title}
+            />
+            <p className="text-xl italic">{article?.description}</p>
+            {article?.body.map((p) =>
+              p.children.map((pc, index) => <p key={index}>{pc.text}</p>)
+            )}
+          </div>
+        )}
+      </div>
+    </>
   );
 }

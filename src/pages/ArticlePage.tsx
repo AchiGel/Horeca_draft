@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ArticleType } from "./Home";
+import { Helmet } from "react-helmet";
 
 export default function ArticlePage() {
   const { id } = useParams<{ id: string }>();
@@ -31,6 +32,29 @@ export default function ArticlePage() {
 
   return (
     <div>
+      <Helmet>
+        <title>{article?.title || "Loading..."}</title>
+        <meta property="og:title" content={article?.title || "Article"} />
+        <meta property="og:description" content={article?.description || ""} />
+        {article?.images?.[0]?.url && (
+          <meta
+            property="og:image"
+            content={`${
+              "https://strapi-horeca.onrender.com" + article?.images[0].url
+            }`}
+          />
+        )}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:type" content="website" />
+        {article?.documentId && (
+          <meta
+            property="og:url"
+            content={`https://horecageorgia.ge/articles/${article.documentId}`}
+          />
+        )}
+        <meta property="fb:app_id" content="1184963699721099" />
+      </Helmet>
       {loading ? (
         "Loading..."
       ) : (
@@ -40,10 +64,7 @@ export default function ArticlePage() {
             src={`${
               "https://strapi-horeca.onrender.com" + article?.images[0].url
             }`}
-            alt={`${
-              "https://strapi-horeca.onrender.com" +
-              article?.images[0].documentId
-            }`}
+            alt={article?.title}
           />
           <p className="text-xl italic">{article?.description}</p>
           {article?.body.map((p) =>

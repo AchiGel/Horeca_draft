@@ -36,7 +36,15 @@ export default function App() {
           <title>Horeca Georgia - ჰორეკა საქართველო</title>
           <meta
             name="description"
-            content="Stay updated on the latest trends, insights, and news in the HORECA industry in Georgia and worldwide. Discover expert analysis, restaurant and hotel updates, and everything you need to know about the hospitality sector."
+            content="Stay updated on the latest trends and news in the HORECA industry in Georgia and worldwide."
+          />
+          <meta
+            property="og:title"
+            content="Horeca Georgia - ჰორეკა საქართველო"
+          />
+          <meta
+            property="og:description"
+            content="Latest trends and news in the HORECA industry in Georgia and worldwide."
           />
         </Helmet>
         <Header modeHandler={modeHandler} dark={dark} />

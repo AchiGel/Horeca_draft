@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Posts from "../components/Posts";
 import Title from "../components/Title";
 import Newest from "../components/Newest";
+import { Helmet } from "react-helmet-async";
 
 export interface PageDescription {
   title: string;
@@ -75,6 +76,21 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center">
+      <Helmet>
+        <title>Horeca Georgia - ჰორეკა საქართველო</title>
+        <meta
+          name="description"
+          content="Stay updated on the latest trends and news in the HORECA industry in Georgia and worldwide."
+        />
+        <meta
+          property="og:title"
+          content="Horeca Georgia - ჰორეკა საქართველო"
+        />
+        <meta
+          property="og:description"
+          content="Latest trends and news in the HORECA industry in Georgia and worldwide."
+        />
+      </Helmet>
       <Title
         page={{
           title: "Horeca Georgia - მასპინძლობის ინდუსტრია საქართველოში",

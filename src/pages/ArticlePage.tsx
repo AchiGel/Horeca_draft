@@ -37,13 +37,8 @@ export default function ArticlePage() {
         <title>{article?.title || "Loading..."}</title>
         <meta property="og:title" content={article?.title || "Article"} />
         <meta property="og:description" content={article?.description || ""} />
-        {article?.images?.[0]?.url && (
-          <meta
-            property="og:image"
-            content={`${
-              "https://strapi-horeca.onrender.com" + article?.images[0].url
-            }`}
-          />
+        {article?.imageUrl && (
+          <meta property="og:image" content={article.imageUrl} />
         )}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -62,12 +57,19 @@ export default function ArticlePage() {
         ) : (
           <div className="flex flex-col gap-4 p-6 pt-24 md:p-16 md:pt-32 max-w-3xl mx-auto">
             <h1 className="text-3xl">{article?.title}</h1>
-            <img
-              src={`${
-                "https://strapi-horeca.onrender.com" + article?.images[0].url
-              }`}
-              alt={article?.title}
-            />
+            {article?.imageUrl !== null ? (
+              <img
+                className="w-full object-cover"
+                src={article?.imageUrl}
+                alt={article?.title}
+              />
+            ) : (
+              <img
+                className="w-full object-cover"
+                src="/no-image-available-icon-vector.jpg"
+                alt="No Image"
+              />
+            )}
             <p className="text-xl italic">{article?.description}</p>
             {article?.body.map((p) =>
               p.children.map((pc, index) => <p key={index}>{pc.text}</p>)

@@ -20,7 +20,7 @@ export interface ArticleType {
   publishedAt: string;
   title: string;
   updatedAt: string;
-  images: ArticleImage[];
+  imageUrl: string;
 }
 
 interface ArticleBody {
@@ -33,11 +33,6 @@ interface ArticleBodyChildren {
   type: string;
 }
 
-interface ArticleImage {
-  url: string;
-  documentId: string;
-}
-
 export default function Home() {
   const [articles, setArticles] = useState<ArticleType[]>([]);
   const [loading, setLoading] = useState(true);
@@ -47,7 +42,7 @@ export default function Home() {
     const fetchArticles = async () => {
       try {
         const response = await fetch(
-          "https://strapi-horeca.onrender.com/api/articles?populate=*"
+          "https://strapi-horeca.onrender.com/api/articles"
         );
 
         if (!response.ok) {

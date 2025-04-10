@@ -23,16 +23,20 @@ export default function Newest({
       {newest ? (
         <Link to={`${"/articles/" + newest.documentId}`}>
           <div className="flex flex-col h-full items-start bg-white dark:bg-slate-600 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow max-w-3xl">
-            <img
-              className="w-full object-cover"
-              src={`${
-                "https://strapi-horeca.onrender.com" + newest.images[0].url
-              }`}
-              alt={`${
-                "https://strapi-horeca.onrender.com" +
-                newest.images[0].documentId
-              }`}
-            />
+            {newest.imageUrl !== null ? (
+              <img
+                className="w-full object-cover"
+                src={newest.imageUrl}
+                alt={newest.title}
+              />
+            ) : (
+              <img
+                className="w-full object-cover"
+                src="/no-image-available-icon-vector.jpg"
+                alt="No Image"
+              />
+            )}
+
             <div className="flex flex-col gap-4 p-6 pt-2">
               <h2 className="text-3xl">{newest.title}</h2>
               <p>{newest.description}</p>

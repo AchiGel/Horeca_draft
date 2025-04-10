@@ -17,15 +17,19 @@ export default function BlogCard({ article }: { article: ArticleType }) {
   return (
     <Link to={"/articles/" + article.documentId}>
       <div className="flex flex-col h-full items-start bg-white dark:bg-slate-600 overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-        <img
-          className="w-full object-cover"
-          src={`${
-            "https://strapi-horeca.onrender.com" + article.images[0].url
-          }`}
-          alt={`${
-            "https://strapi-horeca.onrender.com" + article.images[0].documentId
-          }`}
-        />
+        {article.imageUrl !== null ? (
+          <img
+            className="w-full object-cover"
+            src={article.imageUrl}
+            alt={article.title}
+          />
+        ) : (
+          <img
+            className="w-full object-cover"
+            src="/no-image-available-icon-vector.jpg"
+            alt="No Image"
+          />
+        )}
         <div className="flex flex-col gap-4 p-6 pt-2">
           <h1 className="text-2xl">{article.title}</h1>
           <p>{formattedDate}</p>

@@ -3,6 +3,7 @@ import Posts from "../components/Posts";
 import Title from "../components/Title";
 import Newest from "../components/Newest";
 import { Helmet } from "react-helmet-async";
+import data from "../data/articles.json";
 
 export interface PageDescription {
   title: string;
@@ -12,62 +13,27 @@ export interface PageDescription {
 export interface ArticleType {
   body: ArticleBody[];
   categories: string[];
-  createdAt: string;
   description: string;
   documentId: string;
   id: number;
   minutesRead: number;
-  publishedAt: string;
+  publishedAt: number[];
   title: string;
-  updatedAt: string;
   imageUrl: string;
 }
 
 interface ArticleBody {
-  children: ArticleBodyChildren[];
-  type: string;
-}
-
-interface ArticleBodyChildren {
   text: string;
-  type: string;
 }
 
 export default function Home() {
   const [articles, setArticles] = useState<ArticleType[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [newestArticle, setNewestArticle] = useState<ArticleType>();
 
   useEffect(() => {
-    const fetchArticles = async () => {
-      try {
-        const response = await fetch(
-          "https://strapi-horeca.onrender.com/api/articles"
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setArticles(data.data);
-      } catch (error) {
-        console.error("Error fetching articles:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchArticles();
+    setArticles(data[0].data);
   }, []);
 
-  useEffect(() => {
-    const newestPost = articles.sort(
-      (a, b) =>
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    )[0];
-    setNewestArticle(newestPost);
-  }, [articles]);
+  console.log(data[0].data);
 
   return (
     <div className="flex flex-col items-center">
@@ -92,8 +58,8 @@ export default function Home() {
           descr: "ისტორია, აქტუალური ამბები, ინოვაციები და ტენდენციები",
         }}
       />
-      <Newest newest={newestArticle} />
-      {loading ? "Loading..." : <Posts posts={articles} />}
+      <Newest newest={articles[0]} />
+      <Posts posts={articles} />
     </div>
   );
 }

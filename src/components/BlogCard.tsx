@@ -2,30 +2,24 @@ import { Link } from "react-router-dom";
 import { ArticleType } from "../pages/Home";
 
 export default function BlogCard({ article }: { article: ArticleType }) {
-  const dateStr = article.publishedAt;
-  const date = new Date(
-    dateStr[0],
-    dateStr[1],
-    dateStr[2],
-    dateStr[3],
-    dateStr[4]
-  );
+  const rawDate = article.createdAt;
+  const date = new Date(rawDate);
 
-  const formattedDate = `${date.getHours().toString().padStart(2, "0")}:${date
-    .getMinutes()
+  const formatted = `${date.getDate().toString().padStart(2, "0")}.${(
+    date.getMonth() + 1
+  )
     .toString()
-    .padStart(2, "0")} - ${date.getDate().toString().padStart(2, "0")}.${date
-    .getMonth()
+    .padStart(2, "0")}.${date.getFullYear()} - ${date
+    .getHours()
     .toString()
-    .padStart(2, "0")}.${date.getFullYear()}`;
-
+    .padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
   return (
-    <Link to={"/articles/" + article.documentId}>
+    <Link to={"/articles/" + article._id}>
       <div className="flex flex-col items-start gap-3 bg-white dark:bg-slate-600 shadow-lg hover:shadow-xl rounded-lg h-full overflow-hidden transition-shadow">
         {article.imageUrl !== null ? (
           <img
             className="w-full h-60 object-cover"
-            src={article.imageUrl}
+            src={article.imageUrl + ".jpeg"}
             alt={article.title}
           />
         ) : (
@@ -41,7 +35,7 @@ export default function BlogCard({ article }: { article: ArticleType }) {
               ? article.title.split("").splice(0, 40).join("") + "..."
               : article.title}
           </h1>
-          <p>{formattedDate}</p>
+          <p>{formatted}</p>
         </div>
       </div>
     </Link>

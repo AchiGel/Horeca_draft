@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Posts from "../components/Posts";
 import Title from "../components/Title";
 import Newest from "../components/Newest";
 import { Helmet } from "react-helmet-async";
-import data from "../data/articles.json";
+import { useQuery } from "@tanstack/react-query";
+// import data from "../data/articles.json";
 
 export interface PageDescription {
   title: string;
@@ -11,29 +12,30 @@ export interface PageDescription {
 }
 
 export interface ArticleType {
-  body: ArticleBody[];
+  body: string[];
   categories: string[];
+  createdAt: string;
   description: string;
-  documentId: string;
-  id: number;
-  minutesRead: number;
-  publishedAt: number[];
-  title: string;
   imageUrl: string;
-}
-
-interface ArticleBody {
-  text: string;
+  minuresRead: number;
+  title: string;
+  updatedAt: string;
+  _id: string;
 }
 
 export default function Home() {
-  const [articles, setArticles] = useState<ArticleType[]>([]);
+  async function fetchData(): Promise<ArticleType[]> {
+    const response = await fetch(
+      "https://horeca-backend.vercel.app/api/articles"
+    );
+    if (!response.ok) throw new Error("Failed to fetch articles");
+    return await response.json();
+  }
 
-  useEffect(() => {
-    setArticles(data[0].data);
-  }, []);
-
-  console.log(data[0].data);
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["articles"],
+    queryFn: fetchData,
+  });
 
   return (
     <div className="flex flex-col items-center">
@@ -58,8 +60,18 @@ export default function Home() {
           descr: "ისტორია, აქტუალური ამბები, ინოვაციები და ტენდენციები",
         }}
       />
-      <Newest newest={articles[0]} />
-      <Posts posts={articles} />
+      {isLoading && <p className="py-10">იტვირთება...</p>}
+      {isError && (
+        <p className="py-10 text-red-500">
+          შეცდომა: {(error as Error).message}
+        </p>
+      )}
+      {data && (
+        <>
+          <Newest newest={data[0]} />
+          <Posts posts={data} />
+        </>
+      )}
     </div>
   );
 }

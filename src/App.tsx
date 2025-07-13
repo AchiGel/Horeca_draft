@@ -3,6 +3,9 @@ import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 export default function App() {
   const [dark, setDark] = useState(false);
@@ -31,7 +34,7 @@ export default function App() {
 
   return (
     <HelmetProvider>
-      <div className="flex flex-col min-h-screen dark:bg-1c1c1d dark:text-white">
+      <div className="flex flex-col dark:bg-1c1c1d min-h-screen dark:text-white">
         <Helmet>
           <title>Horeca Georgia - ჰორეკა საქართველო</title>
           <meta
@@ -47,12 +50,14 @@ export default function App() {
             content="Latest trends and news in the HORECA industry in Georgia and worldwide."
           />
         </Helmet>
-        <Header modeHandler={modeHandler} dark={dark} />
-        <div className="flex-grow flex justify-center items-center">
-          <Outlet />
-          {/* <h1 className="text-2xl">კონტენტი მალე დაემატება</h1> */}
-        </div>
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <Header modeHandler={modeHandler} dark={dark} />
+          <div className="flex flex-grow justify-center items-center">
+            <Outlet />
+            {/* <h1 className="text-2xl">კონტენტი მალე დაემატება</h1> */}
+          </div>
+          <Footer />
+        </QueryClientProvider>
       </div>
     </HelmetProvider>
   );

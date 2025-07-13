@@ -1,22 +1,18 @@
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
-import { ArticleType } from "./Home";
+import { getSingleArticle } from "../api/api";
 
 export default function ArticlePage() {
   const { id } = useParams<{ id: string }>();
 
-  async function fetchData(): Promise<ArticleType> {
-    const response = await fetch(
-      `https://horeca-backend.vercel.app/api/articles/${id}`
-    );
-    if (!response.ok) throw new Error("Failed to fetch articles");
-    return await response.json();
-  }
-
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["article"],
-    queryFn: fetchData,
+    queryKey: ["article", id],
+    queryFn: () => {
+      if (!id) throw new Error("Article ID is missing");
+      return getSingleArticle(id);
+    },
+    enabled: !!id,
   });
 
   return (

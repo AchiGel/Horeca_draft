@@ -4,37 +4,13 @@ import Title from "../components/Title";
 import Newest from "../components/Newest";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
+import { getAllArticles } from "../api/api";
 // import data from "../data/articles.json";
 
-export interface PageDescription {
-  title: string;
-  descr: string;
-}
-
-export interface ArticleType {
-  body: string[];
-  categories: string[];
-  createdAt: string;
-  description: string;
-  imageUrl: string;
-  minuresRead: number;
-  title: string;
-  updatedAt: string;
-  _id: string;
-}
-
 export default function Home() {
-  async function fetchData(): Promise<ArticleType[]> {
-    const response = await fetch(
-      "https://horeca-backend.vercel.app/api/articles"
-    );
-    if (!response.ok) throw new Error("Failed to fetch articles");
-    return await response.json();
-  }
-
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["articles"],
-    queryFn: fetchData,
+    queryFn: getAllArticles,
   });
 
   return (

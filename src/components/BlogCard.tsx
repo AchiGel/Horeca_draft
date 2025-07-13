@@ -1,18 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArticleType } from "../pages/Home";
+import { dateFormat } from "../utils/dateFormat";
+import { ArticleType } from "../utils/types";
 
 export default function BlogCard({ article }: { article: ArticleType }) {
-  const rawDate = article.createdAt;
-  const date = new Date(rawDate);
+  const formatedDate = dateFormat(article.createdAt);
 
-  const formatted = `${date.getDate().toString().padStart(2, "0")}.${(
-    date.getMonth() + 1
-  )
-    .toString()
-    .padStart(2, "0")}.${date.getFullYear()} - ${date
-    .getHours()
-    .toString()
-    .padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}`;
   return (
     <Link to={"/articles/" + article._id}>
       <div className="flex flex-col items-start gap-3 bg-white dark:bg-slate-600 shadow-lg hover:shadow-xl rounded-lg h-full overflow-hidden transition-shadow">
@@ -35,7 +27,7 @@ export default function BlogCard({ article }: { article: ArticleType }) {
               ? article.title.split("").splice(0, 40).join("") + "..."
               : article.title}
           </h1>
-          <p>{formatted}</p>
+          <p>{formatedDate}</p>
         </div>
       </div>
     </Link>

@@ -52,7 +52,7 @@ export default function App() {
         </Helmet>
         <QueryClientProvider client={queryClient}>
           <Header modeHandler={modeHandler} dark={dark} />
-          <div className="flex flex-grow justify-center items-center">
+          <div className="flex flex-grow justify-center items-center max-w-[1440px] mx-auto w-full">
             <Outlet />
             {/* <h1 className="text-2xl">კონტენტი მალე დაემატება</h1> */}
           </div>

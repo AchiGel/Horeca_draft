@@ -8,6 +8,7 @@ export default function Hotels() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["articles", "hotels"],
     queryFn: () => getArticlesByCategory("hotels"),
+    staleTime: 1000 * 60 * 5,
   });
   return (
     <>

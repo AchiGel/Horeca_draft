@@ -8,6 +8,7 @@ export default function Trends() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["articles", "trends"],
     queryFn: () => getArticlesByCategory("trends"),
+    staleTime: 1000 * 60 * 5,
   });
   return (
     <>

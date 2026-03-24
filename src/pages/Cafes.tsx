@@ -8,6 +8,7 @@ export default function Cafes() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["articles", "cafes"],
     queryFn: () => getArticlesByCategory("cafes"),
+    staleTime: 1000 * 60 * 5,
   });
 
   return (

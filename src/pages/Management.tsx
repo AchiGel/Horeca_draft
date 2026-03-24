@@ -8,6 +8,7 @@ export default function Management() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["articles", "management"],
     queryFn: () => getArticlesByCategory("management"),
+    staleTime: 1000 * 60 * 5,
   });
   return (
     <>

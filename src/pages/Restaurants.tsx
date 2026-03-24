@@ -8,6 +8,7 @@ export default function Restaurants() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["articles", "restaurants"],
     queryFn: () => getArticlesByCategory("restaurants"),
+    staleTime: 1000 * 60 * 5,
   });
   return (
     <>

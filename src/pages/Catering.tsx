@@ -8,6 +8,7 @@ export default function Catering() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["articles", "catering"],
     queryFn: () => getArticlesByCategory("catering"),
+    staleTime: 1000 * 60 * 5,
   });
   return (
     <>

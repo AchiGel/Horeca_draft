@@ -1,16 +1,15 @@
-// import { useEffect, useState } from "react";
 import Posts from "../components/Posts";
 import Title from "../components/Title";
 import Newest from "../components/Newest";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
 import { getAllArticles } from "../api/api";
-// import data from "../data/articles.json";
 
 export default function Home() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["articles"],
     queryFn: getAllArticles,
+    staleTime: 1000 * 60 * 5,
   });
 
   return (

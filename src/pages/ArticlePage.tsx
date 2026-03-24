@@ -13,6 +13,7 @@ export default function ArticlePage() {
       return getSingleArticle(id);
     },
     enabled: !!id,
+    staleTime: 1000 * 60 * 5,
   });
 
   return (

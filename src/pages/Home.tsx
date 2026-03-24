@@ -43,7 +43,7 @@ export default function Home() {
       )}
       {data && (
         <>
-          <Newest newest={data[0]} />
+          <Newest newest={data[data.length - 1]} />
           <Posts posts={data} />
         </>
       )}

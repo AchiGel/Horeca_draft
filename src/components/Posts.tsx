@@ -5,7 +5,9 @@ export default function Posts({ posts }: { posts: ArticleType[] }) {
   return (
     <div>
       {posts.length === 0 ? (
-        "სტატიები ვერ მოიძებნა!"
+        <div className="flex flex-col p-8 lg:px-16 lg:py-16 pt-12">
+          სტატიები ვერ მოიძებნა!
+        </div>
       ) : (
         <div className="flex flex-col p-8 lg:px-16 lg:py-16 pt-12">
           <h3 className="mb-6 text-2xl md:text-4xl">ყველა სტატია</h3>

@@ -1,26 +1,26 @@
 import { ArticleType } from "../utils/types";
 
-const BASE_URL = "https://horeca-backend.vercel.app/api/articles";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const getAllArticles = async (): Promise<ArticleType[]> => {
   try {
-    const response = await fetch(BASE_URL);
+    const response = await fetch(`${BASE_URL}/articles`);
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
     }
     return await response.json();
   } catch (error) {
     throw new Error(
-      `Failed to fetch all articles: ${(error as Error).message}`
+      `Failed to fetch all articles: ${(error as Error).message}`,
     );
   }
 };
 
 export const getArticlesByCategory = async (
-  category: string
+  category: string,
 ): Promise<ArticleType[]> => {
   try {
-    const response = await fetch(BASE_URL);
+    const response = await fetch(`${BASE_URL}/articles`);
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
     }
@@ -32,21 +32,21 @@ export const getArticlesByCategory = async (
     return filtered;
   } catch (error) {
     throw new Error(
-      `Failed to fetch "${category}" articles: ${(error as Error).message}`
+      `Failed to fetch "${category}" articles: ${(error as Error).message}`,
     );
   }
 };
 
 export const getSingleArticle = async (id: string): Promise<ArticleType> => {
   try {
-    const response = await fetch(`${BASE_URL}/${id}`);
+    const response = await fetch(`${`${BASE_URL}/articles`}/${id}`);
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
     }
     return await response.json();
   } catch (error) {
     throw new Error(
-      `Failed to fetch article with id ${id}: ${(error as Error).message}`
+      `Failed to fetch article with id ${id}: ${(error as Error).message}`,
     );
   }
 };
